@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+@font-face {
+    font-family: 'Share Tech Mono';
+    src: url('share-tech-mono.regular.ttf') format('truetype');
+}
+
+body {
+    max-width: 650px;
+    margin: 60px auto;
+    padding: 0 10px;
+    font: 18px/1.5 "Share Tech Mono", -apple-system, monospace;
+    color: #c8c8c8;
+    background: #222;
+    letter-spacing: 0.1px;
+}
+
+p {
+    text-align: justify;
+}
+
+.lead {
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+h1,
+h2,
+h3 {
+    line-height: 1.2;
+    margin-top: 50px;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+pre {
+    font-family: monospace, "Courier New", Courier;
+    font-size: 14px;
+    background-color: #1f1f1f;
+    overflow: auto;
+    display: block;
+    padding: 10px;
+}
+
+code {
+    font-family: monospace;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    line-height: normal;
+}
+
+::-webkit-scrollbar {
+    width: 3px;
+    height: 3px;
+}
+
+::-webkit-scrollbar-track {
+    background: #222;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c8c8c8;
+    border-radius: 10px;
+    border: 1px solid;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
