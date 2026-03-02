@@ -1,17 +1,30 @@
-@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
-
 @font-face {
-    font-family: 'Share Tech Mono';
-    src: url('share-tech-mono.regular.ttf') format('truetype');
+    font-family: "Share Tech Mono";
+    font-style: normal;
+    font-weight: 400;
+    font-display: block;
+    src: url("/fonts/share-tech-mono-400.woff2") format("woff2");
+}
+
+:root {
+    --bg-color: #222;
+    --text-color: #c8c8c8;
+}
+
+html {
+    background: var(--bg-color);
+    color: var(--text-color);
 }
 
 body {
     max-width: 650px;
     margin: 60px auto;
     padding: 0 10px;
-    font: 18px/1.5 "Share Tech Mono", -apple-system, monospace;
-    color: #c8c8c8;
-    background: #222;
+    font-family: "Share Tech Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--text-color);
+    background: var(--bg-color);
     letter-spacing: 0.1px;
 }
 
@@ -71,12 +84,12 @@ code {
 }
 
 ::-webkit-scrollbar-track {
-    background: #222;
+    background: var(--bg-color);
     border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #c8c8c8;
+    background: var(--text-color);
     border-radius: 10px;
     border: 1px solid;
 }
