@@ -2,25 +2,26 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>upior</title>
+  <title>upior atlas</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="up in da club">
-  <meta name="theme-color" content="#222222">
+  <meta name="description" content="An interactive Turkey map built from a Rob Beautiful image texture.">
+  <meta name="theme-color" content="#12100f">
 
   <style>
     :root {
-      background-color: #222;
-      color: #c8c8c8;
+      background-color: #12100f;
+      color: #f3ead7;
     }
 
     html,
     body {
-      background-color: #222;
-      color: #c8c8c8;
+      background-color: #12100f;
+      color: #f3ead7;
     }
   </style>
 
   <link rel="preload" href="/fonts/share-tech-mono-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/image.PNG" as="image">
   <link rel="stylesheet" href="./style.css">
 
   <link rel="icon" href="/favicons/favicon.ico">
@@ -31,9 +32,325 @@
   <link rel="manifest" href="/favicons/site.webmanifest">
 </head>
 <body>
+  <main class="page">
+    <header class="hero">
+      <p class="eyebrow">upior atlas</p>
+      <h1>Turkey, rebuilt as an interactive Rob Beautiful map.</h1>
+      <p class="intro">
+        Every region pulls from the same source image, then turns into its own hoverable slice of the country.
+        Move across the map or tap the region chips to switch the active panel.
+      </p>
+    </header>
 
-<h1>upior</h1>
-<p class="lead">up in da club</p>
+    <section class="experience" aria-labelledby="experience-title">
+      <div class="map-shell">
+        <div class="map-header">
+          <div>
+            <p class="section-tag">interactive map</p>
+            <h2 id="experience-title">Seven regions, one Rob image.</h2>
+          </div>
+          <p class="map-caption">
+            A stylized SVG of Turkey where each region is filled with a different crop of <code>image.PNG</code>.
+          </p>
+        </div>
 
+        <svg class="turkey-map" viewBox="0 0 1200 560" role="img" aria-labelledby="turkey-map-title turkey-map-desc">
+          <title id="turkey-map-title">Stylized interactive map of Turkey</title>
+          <desc id="turkey-map-desc">Seven clickable regions of Turkey filled with cropped image textures.</desc>
+
+          <defs>
+            <pattern id="fill-marmara" patternUnits="userSpaceOnUse" width="1200" height="560">
+              <image href="/image.PNG" x="-80" y="-70" width="1500" height="795" preserveAspectRatio="xMidYMid slice"></image>
+            </pattern>
+            <pattern id="fill-aegean" patternUnits="userSpaceOnUse" width="1200" height="560">
+              <image href="/image.PNG" x="-230" y="-110" width="1500" height="795" preserveAspectRatio="xMidYMid slice"></image>
+            </pattern>
+            <pattern id="fill-mediterranean" patternUnits="userSpaceOnUse" width="1200" height="560">
+              <image href="/image.PNG" x="-360" y="-240" width="1500" height="795" preserveAspectRatio="xMidYMid slice"></image>
+            </pattern>
+            <pattern id="fill-central" patternUnits="userSpaceOnUse" width="1200" height="560">
+              <image href="/image.PNG" x="-430" y="-130" width="1500" height="795" preserveAspectRatio="xMidYMid slice"></image>
+            </pattern>
+            <pattern id="fill-black-sea" patternUnits="userSpaceOnUse" width="1200" height="560">
+              <image href="/image.PNG" x="-390" y="-280" width="1500" height="795" preserveAspectRatio="xMidYMid slice"></image>
+            </pattern>
+            <pattern id="fill-east" patternUnits="userSpaceOnUse" width="1200" height="560">
+              <image href="/image.PNG" x="-600" y="-110" width="1500" height="795" preserveAspectRatio="xMidYMid slice"></image>
+            </pattern>
+            <pattern id="fill-southeast" patternUnits="userSpaceOnUse" width="1200" height="560">
+              <image href="/image.PNG" x="-710" y="-210" width="1500" height="795" preserveAspectRatio="xMidYMid slice"></image>
+            </pattern>
+          </defs>
+
+          <path
+            class="country-outline"
+            d="M88 330 L120 240 L165 160 L270 125 L520 110 L735 110 L850 160 L965 190 L1080 255 L1025 350 L965 370 L925 450 L760 475 L455 482 L250 452 L120 420 Z"
+          ></path>
+
+          <g class="regions">
+            <path
+              class="region is-active"
+              data-region="marmara"
+              tabindex="0"
+              role="button"
+              aria-label="Marmara region"
+              aria-pressed="true"
+              fill="url(#fill-marmara)"
+              d="M120 240 L165 160 L270 125 L355 145 L330 245 L245 275 L160 265 Z"
+            ></path>
+            <path
+              class="region"
+              data-region="aegean"
+              tabindex="0"
+              role="button"
+              aria-label="Aegean region"
+              aria-pressed="false"
+              fill="url(#fill-aegean)"
+              d="M88 330 L105 255 L160 265 L245 275 L285 385 L225 445 L120 420 Z"
+            ></path>
+            <path
+              class="region"
+              data-region="mediterranean"
+              tabindex="0"
+              role="button"
+              aria-label="Mediterranean region"
+              aria-pressed="false"
+              fill="url(#fill-mediterranean)"
+              d="M225 445 L285 385 L400 345 L560 350 L635 425 L455 482 L250 452 Z"
+            ></path>
+            <path
+              class="region"
+              data-region="central"
+              tabindex="0"
+              role="button"
+              aria-label="Central Anatolia region"
+              aria-pressed="false"
+              fill="url(#fill-central)"
+              d="M245 275 L330 245 L495 205 L635 220 L560 350 L400 345 L285 385 Z"
+            ></path>
+            <path
+              class="region"
+              data-region="black-sea"
+              tabindex="0"
+              role="button"
+              aria-label="Black Sea region"
+              aria-pressed="false"
+              fill="url(#fill-black-sea)"
+              d="M330 245 L355 145 L520 110 L735 110 L850 160 L800 230 L635 220 L495 205 Z"
+            ></path>
+            <path
+              class="region"
+              data-region="east"
+              tabindex="0"
+              role="button"
+              aria-label="Eastern Anatolia region"
+              aria-pressed="false"
+              fill="url(#fill-east)"
+              d="M635 220 L800 230 L965 190 L1080 255 L1025 350 L850 385 L670 355 L560 350 Z"
+            ></path>
+            <path
+              class="region"
+              data-region="southeast"
+              tabindex="0"
+              role="button"
+              aria-label="Southeastern Anatolia region"
+              aria-pressed="false"
+              fill="url(#fill-southeast)"
+              d="M560 350 L670 355 L850 385 L965 370 L925 450 L760 475 L635 425 Z"
+            ></path>
+          </g>
+
+          <g class="region-labels" aria-hidden="true">
+            <text class="map-label" x="242" y="205">Marmara</text>
+            <text class="map-label" x="183" y="350">Aegean</text>
+            <text class="map-label" x="430" y="425">Mediterranean</text>
+            <text class="map-label" x="448" y="293">Central</text>
+            <text class="map-label" x="628" y="172">Black Sea</text>
+            <text class="map-label" x="845" y="292">East</text>
+            <text class="map-label" x="800" y="425">Southeast</text>
+          </g>
+        </svg>
+      </div>
+
+      <aside class="detail-panel" aria-live="polite">
+        <p class="detail-index" id="region-index">01</p>
+        <h2 class="detail-title" id="region-title">Marmara</h2>
+        <p class="detail-copy" id="region-copy">
+          The northwest opens in electric grayscale, with bridge-light energy and late-night Bosphorus shimmer.
+        </p>
+
+        <div class="detail-stats">
+          <section class="stat">
+            <span class="stat-label">Mood</span>
+            <p class="stat-value" id="region-mood">Neon strait</p>
+          </section>
+          <section class="stat">
+            <span class="stat-label">Texture</span>
+            <p class="stat-value" id="region-texture">Bridge lights and hard contrast</p>
+          </section>
+        </div>
+
+        <div class="region-pills" role="toolbar" aria-label="Turkey regions">
+          <button type="button" class="region-pill is-active" data-region-target="marmara" aria-pressed="true">Marmara</button>
+          <button type="button" class="region-pill" data-region-target="aegean" aria-pressed="false">Aegean</button>
+          <button type="button" class="region-pill" data-region-target="mediterranean" aria-pressed="false">Mediterranean</button>
+          <button type="button" class="region-pill" data-region-target="central" aria-pressed="false">Central Anatolia</button>
+          <button type="button" class="region-pill" data-region-target="black-sea" aria-pressed="false">Black Sea</button>
+          <button type="button" class="region-pill" data-region-target="east" aria-pressed="false">Eastern Anatolia</button>
+          <button type="button" class="region-pill" data-region-target="southeast" aria-pressed="false">Southeastern Anatolia</button>
+        </div>
+
+        <p class="detail-footer">
+          Hover on desktop, tap on mobile, or use the keyboard to move around the map.
+        </p>
+      </aside>
+    </section>
+  </main>
+
+  <script>
+    const regionDetails = {
+      marmara: {
+        index: "01",
+        title: "Marmara",
+        copy: "The northwest opens in electric grayscale, with bridge-light energy and late-night Bosphorus shimmer.",
+        mood: "Neon strait",
+        texture: "Bridge lights and hard contrast",
+        accent: "#ffb56b",
+        accentEnd: "#ff7e47",
+        glow: "rgba(255, 181, 107, 0.34)"
+      },
+      aegean: {
+        index: "02",
+        title: "Aegean",
+        copy: "The west coast feels looser and airier, like the same frame stretched into a salt-air afternoon.",
+        mood: "Salt-air loop",
+        texture: "Open spacing and softer edges",
+        accent: "#ffe38a",
+        accentEnd: "#ffb84d",
+        glow: "rgba(255, 227, 138, 0.28)"
+      },
+      mediterranean: {
+        index: "03",
+        title: "Mediterranean",
+        copy: "This long southern band carries the warmest energy in the layout, with a brighter, more sunstruck crop.",
+        mood: "Heat shimmer",
+        texture: "Long coast, brighter fragments",
+        accent: "#ff9f68",
+        accentEnd: "#ff5c45",
+        glow: "rgba(255, 159, 104, 0.32)"
+      },
+      central: {
+        index: "04",
+        title: "Central Anatolia",
+        copy: "The interior becomes the anchor: balanced, architectural, and dense with stacked pieces of the source image.",
+        mood: "Static plateau",
+        texture: "Dense composition and calm mass",
+        accent: "#bba4ff",
+        accentEnd: "#7d6cff",
+        glow: "rgba(187, 164, 255, 0.30)"
+      },
+      "black-sea": {
+        index: "05",
+        title: "Black Sea",
+        copy: "Up north, the map turns colder and tighter, like cloud cover moving over a wired shoreline.",
+        mood: "Cold current",
+        texture: "Compressed detail and cool tension",
+        accent: "#84d8ff",
+        accentEnd: "#33a6ff",
+        glow: "rgba(132, 216, 255, 0.28)"
+      },
+      east: {
+        index: "06",
+        title: "Eastern Anatolia",
+        copy: "The east broadens the composition and pushes the contrast harder, so the image reads heavier and more dramatic.",
+        mood: "Highland voltage",
+        texture: "Broad shapes and sharp contrast",
+        accent: "#ff8f9f",
+        accentEnd: "#ff5470",
+        glow: "rgba(255, 143, 159, 0.30)"
+      },
+      southeast: {
+        index: "07",
+        title: "Southeastern Anatolia",
+        copy: "The southeast trims the same picture into a quicker rhythm, with a warmer glow and a more percussive edge.",
+        mood: "Fast pulse",
+        texture: "Warm grain and angular pace",
+        accent: "#8cf3c7",
+        accentEnd: "#2fd2a5",
+        glow: "rgba(140, 243, 199, 0.28)"
+      }
+    };
+
+    const root = document.documentElement;
+    const regionPaths = document.querySelectorAll(".region");
+    const regionPills = document.querySelectorAll(".region-pill");
+    const panelIndex = document.getElementById("region-index");
+    const panelTitle = document.getElementById("region-title");
+    const panelCopy = document.getElementById("region-copy");
+    const panelMood = document.getElementById("region-mood");
+    const panelTexture = document.getElementById("region-texture");
+    const finePointer = window.matchMedia("(pointer: fine)").matches;
+
+    function setActiveRegion(regionKey) {
+      const details = regionDetails[regionKey];
+
+      if (!details) {
+        return;
+      }
+
+      panelIndex.textContent = details.index;
+      panelTitle.textContent = details.title;
+      panelCopy.textContent = details.copy;
+      panelMood.textContent = details.mood;
+      panelTexture.textContent = details.texture;
+
+      root.style.setProperty("--region-accent", details.accent);
+      root.style.setProperty("--region-accent-end", details.accentEnd);
+      root.style.setProperty("--region-glow", details.glow);
+
+      regionPaths.forEach((regionPath) => {
+        const isActive = regionPath.dataset.region === regionKey;
+        regionPath.classList.toggle("is-active", isActive);
+        regionPath.setAttribute("aria-pressed", isActive ? "true" : "false");
+      });
+
+      regionPills.forEach((regionPill) => {
+        const isActive = regionPill.dataset.regionTarget === regionKey;
+        regionPill.classList.toggle("is-active", isActive);
+        regionPill.setAttribute("aria-pressed", isActive ? "true" : "false");
+      });
+    }
+
+    regionPaths.forEach((regionPath) => {
+      const regionKey = regionPath.dataset.region;
+
+      regionPath.addEventListener("click", () => {
+        setActiveRegion(regionKey);
+      });
+
+      if (finePointer) {
+        regionPath.addEventListener("mouseenter", () => {
+          setActiveRegion(regionKey);
+        });
+      }
+
+      regionPath.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          setActiveRegion(regionKey);
+        }
+      });
+    });
+
+    regionPills.forEach((regionPill) => {
+      const regionKey = regionPill.dataset.regionTarget;
+
+      regionPill.addEventListener("click", () => {
+        setActiveRegion(regionKey);
+      });
+    });
+
+    setActiveRegion("marmara");
+  </script>
 </body>
 </html>
