@@ -30,8 +30,6 @@
 
         min-height: 100vh;
         margin: 0;
-        display: grid;
-        place-items: center;
         overflow: hidden;
         color: var(--ink);
         font: 500 16px/1 ui-monospace, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
@@ -63,8 +61,11 @@
       }
 
       main {
-        position: relative;
+        position: fixed;
+        inset: 0;
         z-index: 1;
+        display: grid;
+        place-items: center;
         padding: 24px;
       }
 
